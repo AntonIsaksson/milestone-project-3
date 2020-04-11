@@ -1,30 +1,30 @@
 import os
+from flask import Flask, render_template, redirect, request, url_for
 import pymongo
-from flask import Flask
+from pymongo import MongoClient
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
     import env
 
-MONGO_URI=os.environ.get("MONGO_URI")
-DBS_NAME="topTenDB"
-COLLECTION_NAME="categories"
+app = Flask(__name__)
+
+app.config["MONGO_DBNAME"] = "topTenDB"
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+
+mongo = PyMongo(app)
 
 
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print("Wiihoo, Mongo is connected!")
-        return conn
-    except pymongo.error.ConnectionFailure as e:
-        print("Could not connect %s") % e
+@app.route('/')
+@app.route('/show_categories')
+def show_categories():
+    return render_template("categories.html", 
+                            categories=list(mongo.db.categories.find()))
 
 
-conn = mongo_connect(MONGO_URI)
 
-coll = conn[DBS_NAME][COLLECTION_NAME]
-
-documents = coll.find()
-
-
-for doc in documents:
-    print(doc)
+if __name__ == "__main__":
+    app.run(host=os.environ.get('IP'),
+        port=os.environ.get('PORT'),
+        debug=True)
