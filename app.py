@@ -10,12 +10,13 @@ if path.exists("env.py"):
 
 app = Flask(__name__)
 
+# app.secret_key = os.getenv("SECRET", "mySecretKey")
 app.config["MONGO_DBNAME"] = "topTenDB"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
-
+# Route to homepage
 @app.route('/')
 @app.route('/home')
 def home_page():
@@ -28,6 +29,10 @@ def show_categories():
                             categories=list(mongo.db.categories.find()))
 
 
+@app.route('/lists')
+def show_lists():
+    return render_template("lists.html", 
+                            categories=list(mongo.db.categories.find()))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
