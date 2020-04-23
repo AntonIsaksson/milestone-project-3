@@ -2,8 +2,8 @@
 
 body {
     text-align: center;
-    color: darkcyan;
-    background-color: darkgoldenrod;
+    color: #fefefe;
+    background-color: rgb(32, 118, 158);
 }
 
 h1 {
@@ -15,18 +15,57 @@ h1 {
     margin-right: 10px;
 }
 
+.content-container {
+    margin-top: 80px;
+}
+
+#home-page-content-wrapper {
+    padding: 15px;
+}
+
+#create-list-content-wrapper {
+    padding: 15px;
+}
+
+#add-category-content-wrapper {
+    padding: 15px;
+}
+
+.create-list-card {
+    color: rgb(32, 118, 158);
+}
+
+i {
+    width: 40px;
+    color: rgb(32, 118, 158);
+}
+
+.create-list-item {
+    padding-top: 30px;
+}
+
+#list-item-modal {
+    color: rgb(32, 118, 158);
+}
+
+.modal-padding {
+    padding: 15px 10px;
+}
 /* Lists page - Sidebar */
+
 #sidebar-wrapper {
     z-index: 1;
-    position: absolute;
-    width: 0;
+    position: fixed;
+    width: 200px;
     height: 100%;
-    overflow-y: hidden;
     background: #2c3E50;
 }
 
+#navbarDropdown {
+    position: relative;
+}
 /* Main Content */
-#page-content-wrapper {
+#lists-page-content-wrapper {
     width: 100%;
     position: absolute;
     padding: 15px;
@@ -34,11 +73,11 @@ h1 {
 
 /* Change the width of the sidebar to display it*/
 #wrapper.menuDisplayed #sidebar-wrapper {
-    width: 250px;
+    width: 200px;
 }
 
-#wrapper.menuDisplayed #page-content-wrapper {
-    padding-left: 250px;
+#wrapper.menuDisplayed #lists-page-content-wrapper {
+    padding-left: 200px;
 }
 
 .sidebar-nav {
@@ -52,11 +91,24 @@ h1 {
 }
 
 .sidebar-nav li a {
-    display: block;
+    /*display: block;*/
     text-decoration: none;
     color: #ddd;
 }
 
 .sidebar-nav li a:hover {
     background: #16A085;
+}
+
+.list-content-wrapper {
+    padding: 45px;
+}
+
+.list-item-heading {
+    text-align: left;
+}
+
+.list-item-paragraf {
+    text-align: left;
+    padding-left: 27px;
 }

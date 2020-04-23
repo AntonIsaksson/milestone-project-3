@@ -1,0 +1,113 @@
+{% extends 'base.html'%} {% block content %}
+
+
+
+
+<!--Create List Modal----------------------------->
+<div class="modal" id="list-item-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="modal-padding modal-title mx-auto">Create List Content</h3>
+                </div>
+                
+            
+                <div class="modal-padding col-12">
+                    <p>Modal body text goes here.</p>
+                </div>
+            
+                <div class="modal-padding col-12">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+<div class="container-fluid" id="create-list-content-wrapper">
+    <h1>Create Your List</h1>
+    <div class="form-container">
+
+
+        <div class="col-md-8 offset-md-2">
+            <span class="anchor" id="formUserEdit"></span>
+            <hr class="my-5">
+
+            <!-- form user info -->
+            <div class="card create-list-card card-outline-secondary">
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off">
+                        <div class="form-group row">
+                            <label class="col-12 col-form-label form-control-label">Main Category</label>
+                            <div class="col-2">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="col-7">
+                                
+                                <select  value="Choose Category" class="form-control" size="0">
+                                    <option value="Choose" selected>Choose Category</option>
+                                {% for category in categories %}
+                                    <option value="">{{category.category_name}}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <a href="{{url_for('add_category')}}"><i class="far fa-plus-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-form-label form-control-label">List Name</label>
+                            <div class="col-2">
+                                <i class="fas fa-signature"></i>
+                            </div>
+                            <div class="col-7">
+                                
+                                <select  value="Choose Category" class="form-control" size="0">
+                                    <option value="Choose" selected>Choose List Title</option>
+                                {% for list in lists %}
+                                    <option value="">{{list.list_name}}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </div>
+                        <div class="form-group row create-list-item">
+                            <div class="col-2">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="col-3">
+                                <a href="#list-item-modal" class="btn btn-info modal-open active" role="button" aria-pressed="true">Create List Item</a>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /form user info -->
+
+        </div>
+        <!--/col-->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

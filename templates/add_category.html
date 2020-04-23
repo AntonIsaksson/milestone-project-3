@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container-fluid" id="add-category-content-wrapper">
+    <div class="card create-list-card card-outline-secondary col-6 mx-auto">
+        <div class="card-body">
+            <h3>Add Category</h3>
+            <form action="{{ url_for('insert_category') }}" method="POST" class="col-12">
+                <div class="form-group col-4 mx-auto">
+                    <input id="category_name" name="category_name" type="text" class="form-control" placeholder="Category Name">   
+                </div>
+                <div class="form-group col-4 mx-auto">
+                    <button class="btn btn-info waves-light" type="submit" name="action">Add Category
+                        <i class="far fa-plus-square"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
