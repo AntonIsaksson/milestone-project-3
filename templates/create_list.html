@@ -1,9 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 
-
-
-<!--Create List Modal----------------------------->
+<!-- Modal - Create List ----------------------------->
 <div class="modal" id="list-item-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -14,66 +12,80 @@
                 
             
                 <div class="modal-padding col-12">
-                    <p>Modal body text goes here.</p>
+                    <form>
+                        <div class="form-group col-12">   
+                            <div class="row">
+                                <div class="col-3 offset-1">                
+                                    <label for="exampleFormControlSelect1">Position</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 offset-1">
+                                    <label for="exampleFormControlInput1">Name</label>
+                                    <input id="list_object_name" name="list_object_name" type="text" class="form-control" placeholder="Jason Bourne">
+                                </div> 
+                            </div>
+                        </div>
+                        
+                        <div class="col-10 mx-auto">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="exampleFormControlTextarea1">Item Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>         
+                                <div class="form-group col-6">    
+                                    <label for="exampleFormControlFile1">Example file input</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             
-                <div class="modal-padding col-12">
+                <div class="ml-auto modal-padding col-4">
                     <button type="button" class="btn btn-primary">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-  </div>
+</div>
 
 
+<!-- Create List Page ----------------------------->
 <div class="container-fluid" id="create-list-content-wrapper">
     <h1>Create Your List</h1>
     <div class="form-container">
-
-
         <div class="col-md-8 offset-md-2">
             <span class="anchor" id="formUserEdit"></span>
             <hr class="my-5">
-
-            <!-- form user info -->
             <div class="card create-list-card card-outline-secondary">
                 <div class="card-body">
+                    <!-- Create List Form -->
                     <form class="form" role="form" autocomplete="off">
-                        <div class="form-group row">
-                            <label class="col-12 col-form-label form-control-label">Main Category</label>
-                            <div class="col-2">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="col-7">
-                                
-                                <select  value="Choose Category" class="form-control" size="0">
-                                    <option value="Choose" selected>Choose Category</option>
-                                {% for category in categories %}
-                                    <option value="">{{category.category_name}}</option>
-                                {% endfor %}
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <a href="{{url_for('add_category')}}"><i class="far fa-plus-square"></i></a>
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-12 col-form-label form-control-label">List Name</label>
                             <div class="col-2">
                                 <i class="fas fa-signature"></i>
                             </div>
                             <div class="col-7">
-                                
-                                <select  value="Choose Category" class="form-control" size="0">
-                                    <option value="Choose" selected>Choose List Title</option>
-                                {% for list in lists %}
-                                    <option value="">{{list.list_name}}</option>
-                                {% endfor %}
-                                </select>
+                                <form action="{{ url_for('insert_list_name') }}" method="POST" class="col-12">
+                                    <div class="form-group">
+                                        <input id="list_name" name="list_name" type="text" class="form-control" placeholder="Top 10 Action Movies">   
+                                    </div>
+                                </form>
                             </div>
                             <div class="col-3">
-                                <i class="far fa-plus-square"></i>
                             </div>
                         </div>
                         <div class="form-group row create-list-item">
@@ -93,21 +105,11 @@
                             </div>
                         </div>
                     </form>
+                    <!-- /List Form -->
                 </div>
             </div>
-            <!-- /form user info -->
-
         </div>
-        <!--/col-->
-
-
     </div>
 </div>
-
-
-
-
-
-
 
 {% endblock %}

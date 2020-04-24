@@ -4,6 +4,9 @@ body {
     text-align: center;
     color: #fefefe;
     background-color: rgb(32, 118, 158);
+    /*background-image: url(/static/img/collage.1.png);
+    background-size: cover;
+    background-position: center;*/
 }
 
 h1 {
@@ -21,6 +24,9 @@ h1 {
 
 #home-page-content-wrapper {
     padding: 15px;
+    /*background-image: url(/static/img/collage.1.png);
+    background-size: cover;
+    background-position: center;*/
 }
 
 #create-list-content-wrapper {
@@ -56,7 +62,7 @@ i {
 #sidebar-wrapper {
     z-index: 1;
     position: fixed;
-    width: 200px;
+    width: 250px;
     height: 100%;
     background: #2c3E50;
 }
@@ -73,11 +79,11 @@ i {
 
 /* Change the width of the sidebar to display it*/
 #wrapper.menuDisplayed #sidebar-wrapper {
-    width: 200px;
+    width: 250px;
 }
 
 #wrapper.menuDisplayed #lists-page-content-wrapper {
-    padding-left: 200px;
+    padding-left: 250px;
 }
 
 .sidebar-nav {

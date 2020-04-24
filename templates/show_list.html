@@ -1,0 +1,38 @@
+{% extends 'lists.html' %} {% block list %}
+<!-- List Content  -->
+<div id="lists-page-content-wrapper">
+    <div class="container-fluid">
+        {% for list in lists %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>{{list.list_name}}</h1>
+                
+                    <div class="list-content-wrapper row">
+                        <div class="col-12 ml-auto">
+                            <h3 class="list-item-heading">{{list.list_object_1.list_object_number}}. {{list.list_object_1.list_object_name}}</h3>
+                        </div>
+                        <div class="col-lg-8">
+                            <p class="list-item-paragraf">
+                                {{list.list_object_1.list_object_description}}
+                            </p>
+                        </div>
+                        <div class="col-lg-4"><img src="" alt=""></div>
+                    </div>
+
+                    <div class="list-content-wrapper row">
+                        <div class="col-12 ml-auto">
+                            <h3 class="list-item-heading">{{list.list_object_2.list_object_number}}. {{list.list_object_2.list_object_name}}</h3>
+                        </div>
+                        <div class="col-lg-8">
+                            <p class="list-item-paragraf">
+                                {{list.list_object_2.list_object_description}}
+                            </p>
+                        </div>
+                        <div class="col-lg-4"><img src="" alt=""></div>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
