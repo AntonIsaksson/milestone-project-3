@@ -1,13 +1,12 @@
 {% extends 'base.html'%} 
 
-    
 {% block content %}
     <!--Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             {% for list in lists %}
             <li class="nav-item">        
-                <a class="nav-link" href="{{url_for('show_list', lists_id=list._id)}}">
+                <a class="nav-link" href="{{url_for('show_list')}}">
                     {{list.list_name}}
                 </a>
                 {% endfor %}  

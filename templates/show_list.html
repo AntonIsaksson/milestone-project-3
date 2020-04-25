@@ -1,13 +1,16 @@
-{% extends 'lists.html' %} {% block list %}
-<!-- List Content  -->
+{% extends 'lists.html' %} 
+
+{% block list %}
+<!-- List Content -->
 <div id="lists-page-content-wrapper">
     <div class="container-fluid">
         {% for list in lists %}
+        
         <div class="row">
             <div class="col-lg-12">
                 <h1>{{list.list_name}}</h1>
                     
-                    {% for listObject in list.list_objects %}
+                   {% for listObject in list.list_objects %}
                     <div class="list-content-wrapper row">
                         
                         <div class="col-12 ml-auto">
@@ -23,7 +26,9 @@
                         </div>
                         <div class="col-lg-4"><img src="" alt=""></div>
                     </div>
-                    {% endfor %}
+                   {% endfor %}
+                   
+                    
             </div>
         </div>
         {% endfor %}

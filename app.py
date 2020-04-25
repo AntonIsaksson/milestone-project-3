@@ -18,11 +18,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 mongo = PyMongo(app)
 
 
-"""def index():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
-    return render_template('index.html')"""
-
 @app.route('/')
 
 
@@ -68,7 +63,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
+            return redirect(url_for('to_login'))
         
         return 'That username already exists!'
 
@@ -77,7 +72,7 @@ def register():
 
 @app.route('/account')
 def account():
-    return render_template('account.html', users = mongo.db.users.find_one({'name': session['username']}))
+    return render_template('account.html', users = mongo.db.users.find_one({'name': session['username']})) 
 
 
 
@@ -90,10 +85,10 @@ def show_lists():
                             lists=list(mongo.db.lists.find()))
 
 
-@app.route('/show_list/<lists_id>')
-def show_list(lists_id):
-    return render_template("show_list.html", 
-                            lists=mongo.db.lists.find_one({"_id": ObjectId(lists_id)}))
+@app.route('/show_list')
+def show_list():
+    lists = mongo.db.lists.find()
+    return render_template("show_list.html", lists=lists)
 
 
 @app.route('/create_list')
@@ -113,4 +108,4 @@ def insert_list_name():
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
         port=os.environ.get('PORT'),
-        debug=True)
+        debug=False)
