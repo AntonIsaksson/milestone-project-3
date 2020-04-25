@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block nav %}
+
+<form class="form-inline my-2 my-lg-0">
+    <a class="nav-link" href="{{url_for('account')}}">Logged in as {{ users.name }}</a>
+</form>
+
+{% endblock %}
+{% block content %}
+            <!-- Home Page Content -->
+            <div class="container-fluid showmeclass" id="home-page-content-wrapper">
+                <h1>My Account</h1>
+                <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>
+            </div>
+{% endblock %}

@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--From Video https://www.youtube.com/watch?v=vVx1737auSE-->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
+    
     <title>TopTenMovies</title>
 </head>
 <body>
@@ -30,10 +34,9 @@
                       <a class="nav-link" href="{{url_for('show_lists')}}">Existing Topics</a>
                   </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-              </form>
+              {% block nav %}
+              
+              {% endblock %}
           </div>
       </nav>
       

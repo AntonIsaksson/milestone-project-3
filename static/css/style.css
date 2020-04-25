@@ -118,3 +118,7 @@ i {
     text-align: left;
     padding-left: 27px;
 }
+
+.form-signin {
+    padding: 10px;
+}
