@@ -1,21 +1,41 @@
 {% extends 'base.html'%} 
-
+ 
 {% block content %}
-    <!--Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            {% for list in lists %}
-            <li class="nav-item">        
-                <a class="nav-link" href="{{url_for('show_list')}}">
-                    {{list.list_name}}
-                </a>
-                {% endfor %}  
-            </li>   
-        </ul>    
-    </div>
-    {% block list %}
-    <!--Lists Content goes here -->
-    {% endblock %}
+<!--Sidebar -->
+ <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        {% for list in lists %}
+        <li class="nav-item">        
+            <a class="nav-link" href="{{ url_for('view_lists', list_id=list._id) }}">
+                {{list.list_name}}
+            </a>
+            {% endfor %}  
+        </li>   
+    </ul>    
+</div>
+
+
+    
+    <!--<div class="row">
+        {% for list in lists %}
+            <div class="col s12 m6 l4">
+              <div class="card small">
+                <div class="card-image">
+                    <img src="#" alt="">
+                  </div>
+                
+                <div class="card-content">
+                  <h2 class="card-title">{{ list.list_name }}</h2>
+                </div>
+                
+                <div class="card-action">
+                  <a href="{{ url_for('view_lists', list_id=list._id) }}">View</a>
+                </div>
+                
+              </div>
+            </div>
+            {% endfor %}  
+          </div>-->
 
 
 {% endblock %}

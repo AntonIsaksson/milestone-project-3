@@ -2,7 +2,7 @@
 
 
 <!-- Modal - Create List ----------------------------->
-<div class="modal" id="list-item-modal" tabindex="-1" role="dialog">
+<!--<div class="modal" id="list-item-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="row">
@@ -59,49 +59,68 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <!-- Create List Page ----------------------------->
 <div class="container-fluid" id="create-list-content-wrapper">
     <h1>Create Your List</h1>
     <div class="form-container">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10 offset-1">
             <span class="anchor" id="formUserEdit"></span>
             <hr class="my-5">
             <div class="card create-list-card card-outline-secondary">
                 <div class="card-body">
                     <!-- Create List Form -->
-                    <form class="form" role="form" autocomplete="off">
-                        <div class="form-group row">
-                            <label class="col-12 col-form-label form-control-label">List Name</label>
-                            <div class="col-2">
+                    <form class="form" action="{{ url_for('insert_list') }}" method="POST" role="form" autocomplete="off">
+                        <!--List Name Add-->
+                        <div class="form-group row add-list-name-row">                                                        
+                            <div class="col-1">
                                 <i class="fas fa-signature"></i>
                             </div>
-                            <div class="col-7">
-                                <form action="{{ url_for('insert_list_name') }}" method="POST" class="col-12">
-                                    <div class="form-group">
-                                        <input id="list_name" name="list_name" type="text" class="form-control" placeholder="Top 10 Action Movies">   
-                                    </div>
-                                </form>
+                            <div class="col-5">                                                                
+                                <input id="list_name" name="list_name" type="text" class="form-control" placeholder="List Title Name">                                    
                             </div>
-                            <div class="col-3">
-                            </div>
+                            <div class=" col-4 offset-1">    
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>                            
                         </div>
-                        <div class="form-group row create-list-item">
-                            <div class="col-2">
+                        <!--List Object Add-->
+                        <div class="form-group add-list-object-row row">
+                            <div class="col-1">
                                 <i class="fas fa-tasks"></i>
                             </div>
-                            <div class="col-3">
-                                <a href="#list-item-modal" class="btn btn-info modal-open active" role="button" aria-pressed="true">Create List Item</a>
+                            <div class="col-2">                                                
+                                <input type="number" class="form-control" id="list_object_number_1" name="list_object_number_1" placeholder="Position">                                    
                             </div>
+                            
+                            <div class="col-3">
+                                <input id="list_object_name_1" name="list_object_name_1" type="text" class="form-control" placeholder="Item Name">
+                            </div>
+                                                   
+                            <div class="col-6">
+                                <textarea class="form-control" id="list_object_description_1" name="list_object_description_1" placeholder="Item Description" rows="1"></textarea>
+                            </div>  
                         </div>
-                        
+                        <div class="form-group add-list-object-row row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-2">                                                
+                                <input type="number" class="form-control" id="list_object_number_2" name="list_object_number_2" placeholder="Position">                                    
+                            </div>
+                            
+                            <div class="col-3">
+                                <input id="list_object_name_2" name="list_object_name_2" type="text" class="form-control" placeholder="Item Name">
+                            </div>
+                                                   
+                            <div class="col-6">
+                                <textarea class="form-control" id="list_object_description_2" name="list_object_description_2" placeholder="Item Description" rows="1"></textarea>
+                            </div>  
+                        </div>
+                        <!--Submit Button-->
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-info" name="action">
                             </div>
                         </div>
                     </form>
