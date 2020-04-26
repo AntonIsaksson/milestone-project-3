@@ -1,0 +1,67 @@
+{% extends 'base.html'%} {% block content %}
+
+<!-- Create List Page ----------------------------->
+<div class="container-fluid" id="create-list-content-wrapper">
+    <h1>Edit Your List</h1>
+    <div class="form-container">
+        <div class="col-md-10 offset-1">
+            <span class="anchor" id="formUserEdit"></span>
+            <hr class="my-5">
+            <div class="card create-list-card card-outline-secondary">
+                <div class="card-body">
+                    <!-- Create List Form -->
+                    
+                    <form class="form" action="{{ url_for('update_list', list_id=lists._id) }}" method="POST" role="form" autocomplete="off">
+                        <!--List Name Add-->
+                        
+                        <div class="form-group row add-list-name-row">                                                        
+                            <div class="col-1">
+                                <i class="fas fa-signature"></i>
+                            </div>
+                            <div class="col-5">                                                                
+                                <input id="list_name" name="list_name" type="text" class="form-control" placeholder="{{ lists.list_name }}">                                    
+                            </div>                           
+                        </div>
+                        <!--List Object Add-->
+                        {% for listObject in lists.list_objects %}
+                        <div class="form-group add-list-object-row row">
+                            
+                            <div class="col-1">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            
+                            <div class="col-2">     
+                                                                          
+                                <input type="number" class="form-control" id="list_object_number" name="list_object_number" value="{{ listObject.list_object_number }}">
+                                                                    
+                            </div>
+                            
+                            <div class="col-3">
+                                
+                                <input id="list_object_name" name="list_object_name" type="text" class="form-control" value="{{ listObject.list_object_name }}">
+                                
+                            </div>
+                                                   
+                            <div class="col-6">
+                                <textarea class="form-control"  id="list_object_description" name="list_object_description" placeholder="{{ listObject.list_object_description }}" rows="1"></textarea>
+                            </div>
+                            
+                        </div>
+                        {% endfor %}
+                        
+                        <!--Submit Button-->
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-info" name="action">
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- /List Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

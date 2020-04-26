@@ -94,6 +94,10 @@ def create_list():
 
 
 
+
+
+
+
 #lists.insert_one(request.form.to_dict())
 @app.route('/insert_list', methods=['POST'])
 def insert_list():
@@ -124,8 +128,36 @@ def insert_list():
     return redirect(url_for('home_page'))                     
 
 
+@app.route('/edit_list/<list_id>')
+def edit_list(list_id):
+    the_list=mongo.db.lists.find_one({"_id":ObjectId(list_id)})
+    return render_template('edit_list.html',
+                            lists=the_list)
+
+
+@app.route('/update_list/<list_id>', methods=["POST"])
+def update_list(list_id):    
+    lists = mongo.db.lists.update( {'_id': ObjectId(list_id)},
+        {
+            'list_name':request.form.get('list_name'),
+            "list_objects":[
+                {
+                "list_object_number": request.form.get('list_object_number'),
+                "list_object_name": request.form.get('list_object_name'),
+                "list_object_description": request.form.get('list_object_description')         
+                }
+            ]   
+        })
+    return redirect(url_for('show_list'))
+
+
+@app.route('/delete_list')
+def delete_list():
+    return ''
+
+
 if __name__ == "__main__":
     #app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
         port=os.environ.get('PORT'),
-        debug=True)
+        debug=False)

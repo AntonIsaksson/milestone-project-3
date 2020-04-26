@@ -41,14 +41,18 @@
                         <div class="col-lg-4"><img src="" alt=""></div>
                     </div>
                    {% endfor %}
+                   
                    <div>
                     {% if session['username'] == lists.user %}
-                        <a href="{{url_for('edit_list', list_id=list._id)}}" class="waves-effect waves-light btn btn-sml blue">Edit</a>
-                        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn-sml">Delete</a>
-                    {% else %} 
+                        <a href="{{url_for('edit_list', list_id=lists._id)}}" class="waves-effect waves-light btn btn-sml blue">Edit</a>
+                        <a href="{{url_for('delete_list', list_id=lists._id)}}" class="waves-effect waves-light btn btn-sml">Delete</a>
+                        {% elif session['username'] == None %} 
+                        <p>Submitted by {{ lists.user }}</p>
+                        {% else %}
                         <p>Submitted by {{ lists.user }}</p>
                     {% endif %}
-                </div>
+                    </div>
+                    
                     
             </div>
         </div>
