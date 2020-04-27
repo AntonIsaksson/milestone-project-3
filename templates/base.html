@@ -16,25 +16,40 @@
 <body>
 
     <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-          <a class="navbar-brand" href="{{url_for('home_page')}}"><img class="logo" src="{{url_for('static', filename='img/top-ten-logo.png')}}" alt="logo"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="{{url_for('home_page')}}"><img class="logo" src="{{url_for('static', filename='img/top-ten-logo.png')}}" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                      <a class="nav-link" href="{{url_for('home_page')}}">Home </a>
-                  </li>
-                  
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{url_for('show_list')}}">All Lists</a>
-                  </li>
-              </ul>
-              {% block nav %}
-              
-              {% endblock %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('home_page')}}">Home </a>
+                </li>                  
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('show_list')}}">All Lists</a>
+                </li>
+                {% if session['username'] %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('create_list')}}">Create List</a>
+                </li>
+                {% endif %}
+            </ul>
+                {% block nav %}
+                {% if session['username'] %}
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="nav-link nav-link-right">Logged in as <strong>{{ users.name }}</strong></a>
+                    <a>/</a>
+                    <a class="nav-link nav-link-right" href="{{url_for('logout')}}">Log Out</strong></a>
+                </form>
+                {% else %}
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="nav-link nav-link-right" href="{{url_for('to_login')}}">LogIn</a><a>/</a>
+                    <a class="nav-link nav-link-right" href="{{url_for('register')}}">Register</a>
+                </form>
+                {% endif %}
+                {% endblock %}
           </div>
       </nav>
       
@@ -44,23 +59,7 @@
     <div class="content-container">
         <div id="wrapper" class="menuDisplayed">
             {% block content %}
-            <!-- Home Page Content -->
-            <div class="container-fluid" id="home-page-content-wrapper">
-                <h1>Top Ten Things!</h1>
-                <div class="col-6 offset-3">
-                    <ol>
-                        <li>
-                            <p>Search for the topic you are interested in!</p>
-                        </li>
-                        <li>
-                            <p>Create your own Top Ten List!</p>
-                        </li>
-                        <li>
-
-                        </li>
-                    </ol>
-                </div>
-            </div>
+            
             {% endblock %}
         </div>
     </div>

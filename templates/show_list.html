@@ -3,7 +3,9 @@
 
 <!--Sidebar -->
 <div id="sidebar-wrapper">
+    <h4>Top 10 Lists</h4>
     <ul class="sidebar-nav">
+        <hr class="my-2">
         {% for list in listName %}
         <li class="nav-item">        
             <a class="nav-link" href="{{ url_for('view_lists', list_id=list._id) }}">
@@ -17,46 +19,46 @@
 
 <!-- List Content -->
 <div id="lists-page-content-wrapper">
-    <div class="container-fluid">
-        
-        
+    <div class="container-fluid">       
         <div class="row">
-            <div class="col-lg-12">
-                <h1>{{lists.list_name}}</h1>
-                    
-                   {% for listObject in lists.list_objects %}
-                    <div class="list-content-wrapper row">
-                        
-                        <div class="col-12 ml-auto">
-                            
-                            <h3 class="list-item-heading">{{listObject.list_object_number}}. {{listObject.list_object_name}}</h3>
-                            
-                        </div>
-                        
-                        <div class="col-lg-8">
-                            <p class="list-item-paragraf">
-                                {{listObject.list_object_description}}
-                            </p>
-                        </div>
-                        <div class="col-lg-4"><img src="" alt=""></div>
-                    </div>
-                   {% endfor %}
-                   
-                   <div>
-                    {% if session['username'] == lists.user %}
-                        <a href="{{url_for('edit_list', list_id=lists._id)}}" class="waves-effect waves-light btn btn-sml blue">Edit</a>
-                        <a href="{{url_for('delete_list', list_id=lists._id)}}" class="waves-effect waves-light btn btn-sml">Delete</a>
-                        {% elif session['username'] == None %} 
-                        <p>Submitted by {{ lists.user }}</p>
-                        {% else %}
-                        <p>Submitted by {{ lists.user }}</p>
-                    {% endif %}
-                    </div>
-                    
-                    
+            <div class="col-12">
+                <h1 class="list_heading">{{lists.list_name}}</h1>
             </div>
-        </div>
-        
+            <hr class="my-5">
+            <div class="col-8 mx-auto">
+                <img class="list_image img-fluid" src="{{ lists.image_file }}">
+            </div>
+                   
+                {% for listObject in lists.list_objects %}
+                <div class="list-content-wrapper row">                        
+                    <div class="col-12 ml-auto">                            
+                        <h3 class="list-item-heading">{{listObject.list_object_number}}. {{listObject.list_object_name}}</h3>                            
+                    </div>                        
+                    <div class="col-12">
+                        <p class="list-item-paragraf">
+                            {{listObject.list_object_description}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-12">
+                    <hr class="my-5">
+                {% if session['username'] == lists.user %}
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Submitted by <strong>{{ lists.user }}</strong></p>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{url_for('edit_list', list_id=lists._id)}}" class=" btn btn-warning">Edit List</a>
+                        </div>
+                    </div>     
+                {% else %}
+                    <p>Submitted by <strong>{{ lists.user }}</strong></p>
+                {% endif %}
+                    <hr class="my-5">
+                </div>                    
+            </div>
+        </div>        
     </div>
 </div>
 {% endblock %}

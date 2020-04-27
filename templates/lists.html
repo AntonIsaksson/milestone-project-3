@@ -3,6 +3,8 @@
 {% block content %}
 <!--Sidebar -->
  <div id="sidebar-wrapper">
+     <h4>Top 10 Lists</h4>
+     <hr class="my-2">
     <ul class="sidebar-nav">
         {% for list in lists %}
         <li class="nav-item">        
@@ -14,28 +16,184 @@
     </ul>    
 </div>
 
-
-    
-    <!--<div class="row">
-        {% for list in lists %}
-            <div class="col s12 m6 l4">
-              <div class="card small">
-                <div class="card-image">
-                    <img src="#" alt="">
-                  </div>
-                
-                <div class="card-content">
-                  <h2 class="card-title">{{ list.list_name }}</h2>
-                </div>
-                
-                <div class="card-action">
-                  <a href="{{ url_for('view_lists', list_id=list._id) }}">View</a>
-                </div>
-                
-              </div>
+<!-- List Content -->
+<div id="lists-page-content-wrapper">
+    <div class="container-fluid">       
+        <div class="row">
+            <div class="col-12">
+                <h1 class="list_heading">Top 10 Action Movies</h1>
             </div>
-            {% endfor %}  
-          </div>-->
-
-
+            <hr class="my-5">
+            <div class="col-8 mx-auto">
+                <img class="list_image img-fluid" src="https://wallpaperaccess.com/full/1859928.jpg">
+            </div>
+                   
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">1. James Bond</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        James Bond is a fictional character created by the novelist Ian Fleming in 1953. 
+                        Bond is a British secret agent working for MI6 who also answers to his codename, 007. 
+                        He has been portrayed on film by the actors Sean Connery, David Niven, George Lazenby,
+                        Roger Moore, Timothy Dalton, Pierce Brosnan, and Daniel Craig, in twenty-seven productions. 
+                        All the films but two were made by Eon Productions. Eon now holds the full adaptation rights to 
+                        all of Fleming's Bond novels. In 1961 the producers Albert R. Broccoli and Harry Saltzman joined 
+                        forces to purchase the filming rights to Fleming's novels. They founded the production company Eon 
+                        Productions and, with financial backing by United Artists, began working on Dr. No, which
+                        was directed by Terence Young and featured Connery as Bond.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">2. Die Hard</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        Die Hard is a 1988 American action thriller film directed by John McTiernan, written by Jeb Stuart 
+                        and Steven E. de Souza. Based on Roderick Thorp's 1979 novel Nothing Lasts Forever, it was produced 
+                        by the Gordon Company and Silver Pictures, and distributed by 20th Century Fox. The film follows 
+                        off-duty New York City Police Department officer John McClane (Bruce Willis) who is caught in a 
+                        Los Angeles skyscraper on Christmas Eve during a heist led by criminal mastermind Hans Gruber (Alan Rickman).
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">3. Jason Bourne</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        Jason Bourne is a 2016 American action thriller film directed by Paul Greengrass and written by Paul Greengrass 
+                        and Christopher Rouse. It is the fifth installment of the Bourne film series and a direct sequel to The Bourne Ultimatum 
+                        (2007). Matt Damon reprises his role as the main character, former CIA assassin Jason Bourne. In addition, the film stars 
+                        Tommy Lee Jones, Alicia Vikander, Julia Stiles, Vincent Cassel, Riz Ahmed, Ato Essandoh and Scott Shepherd. The character 
+                        Aaron Cross, from The Bourne Legacy (2012), does not appear in the film because director Greengrass wanted to focus on the 
+                        title character, and because actor Jeremy Renner was unable to participate due to scheduling conflicts. In Jason Bourne,
+                         Bourne remains on the run from CIA hit squads as he tries to uncover hidden truths about his father, while CIA director
+                          Robert Dewey (Jones) orders the head of cyber-security Heather Lee (Vikander) to hunt him down. Principal photography 
+                          on the film commenced on September 8, 2015.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">4. Matrix</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        The Matrix is a 1999 science fiction action film written and directed by the Wachowskis. It stars Keanu Reeves, Laurence 
+                        Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano and is the first installment in the Matrix franchise. It 
+                        depicts a dystopian future in which humanity is unknowingly trapped inside a simulated reality, the Matrix, created by 
+                        intelligent machines to distract humans while using their bodies as an energy source. When computer programmer Thomas 
+                        Anderson, under the hacker alias "Neo", uncovers the truth, he "is drawn into a rebellion against the machines" along 
+                        with other people who have been freed from the Matrix.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">5. Mad Max: Fury Road</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        Mad Max: Fury Road is a 2015 Australian post-apocalyptic action film co-written, produced, and directed by George Miller.
+                        Miller collaborated with Brendan McCarthy and Nico Lathouris on the screenplay. The fourth installment and a "revisiting"
+                        of the Mad Max films, it is produced by Kennedy Miller Mitchell, RatPac-Dune Entertainment, and Village Roadshow Pictures 
+                        and distributed by Warner Bros. Pictures. The film is set in a post-apocalyptic desert wasteland where petrol and water 
+                        are scarce commodities. It follows Max Rockatansky (Tom Hardy), who joins forces with Imperator Furiosa (Charlize Theron)
+                        to flee from cult leader Immortan Joe (Hugh Keays-Byrne) and his army in an armoured tanker truck, leading to a lengthy
+                        road battle. The film also features Nicholas Hoult, Rosie Huntington-Whiteley, Riley Keough, Zoë Kravitz, Abbey Lee, 
+                        and Courtney Eaton.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">6. Avengers: Endgame</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies,
+                        the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">7. The Dark Knight</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest 
+                        psychological and physical tests of his ability to fight injustice.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">8. Terminator</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        The Terminator is a 1984 American science fiction film directed by James Cameron. It stars Arnold Schwarzenegger as the 
+                        Terminator, a cyborg assassin sent back in time from 2029 to 1984 to kill Sarah Connor (Linda Hamilton), whose son will 
+                        one day become a savior against machines in a post-apocalyptic future. Michael Biehn plays Kyle Reese, a reverent soldier 
+                        sent back in time to protect Sarah. The screenplay is credited to Cameron and producer Gale Anne Hurd, while co-writer 
+                        William Wisher Jr. received a credit for additional dialogue. Executive producers John Daly and Derek Gibson of Hemdale 
+                        Film Corporation were instrumental in financing and production.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">9. Rambo</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        Rambo is an American media franchise centered on a series of action films. There have been five films released so far 
+                        in the series: First Blood (1982), Rambo: First Blood Part II (1985), Rambo III (1988), Rambo (2008) and Rambo: Last
+                        Blood (2019). The films follow John Rambo, a US Army veteran played by Sylvester Stallone, who is traumatized by his 
+                        experience in the Vietnam War, and uses the skills he gained there to fight corrupt police officers, enemy troops and 
+                        drug cartels. The franchise has its roots in the 1972 novel First Blood by David Morrell. Stallone co-wrote the screenplays 
+                        of all five films, and directed Rambo.
+                    </p>
+                </div>
+            </div>
+            <!--List Object 1-->
+            <div class="list-content-wrapper row">                        
+                <div class="col-12 ml-auto">                            
+                    <h3 class="list-item-heading">10. Lethal Weapon</h3>                            
+                </div>                        
+                <div class="col-12">
+                    <p class="list-item-paragraf">
+                        Lethal Weapon is a 1987 American buddy cop action comedy film directed by Richard Donner, and produced by Joel Silver, 
+                        and written by Shane Black. It stars Mel Gibson and Danny Glover alongside Gary Busey, Tom Atkins, Darlene Love, and Mitchell 
+                        Ryan. In Lethal Weapon, a pair of mismatched LAPD detectives – Martin Riggs (Gibson), a former Green Beret who has become 
+                        suicidal following the death of his wife, and Roger Murtaugh (Glover), a 50-year-old veteran of the force – work together as 
+                        partners.
+                    </p>
+                </div>
+            </div>
+            
+            <!--Submitted By...-->
+            <div class="col-12">
+                <hr class="my-5">
+                <p>Submitted by <strong>User1</strong></p>
+                <hr class="my-5">
+            </div>                 
+        </div>        
+    </div>
+</div>
 {% endblock %}

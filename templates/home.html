@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
-{% block nav %}
-<form class="form-inline my-2 my-lg-0">
-    <a class="nav-link" href="{{url_for('to_login')}}">LogIn</a>
-    <a class="nav-link" href="{{url_for('register')}}">Register</a>
-</form>
-{% endblock %}
+
 {% block content %}
             <!-- Home Page Content -->
-            <div class="container-fluid" id="home-page-content-wrapper">
-                <h1>Top Ten Things!</h1>
+            <div class="container" id="home-page-content-wrapper">
+                
+                    <div class="title">
+                        <div class="col-12">
+                            <h1 id="main-header">TOP <strong id="strong-heading">10</strong> Movies</h1>
+                        </div>
+                        <hr class="my-5">
+                        
+                        <div class="col-10 offset-1">
+                            <ul class="home-page-list">
+                                <li><h5>Check out other users <strong>"Top 10 Movies"</strong> lists</h5></li>
+                                <li><h5>Create your own list with your favourite movies and..</h5></li>
+                                <li><h5>Share it with the world!</h5></li>
+                            </ul>
+                        </div>
+                        <hr class="my-5">
+                        <div class="col-12">
+                            {% if session['username'] %}
+                            <button class="btn"><a class="nav-link-right" href="{{url_for('logout')}}" style="text-decoration: none;color: #fff;">Sign Out</a></button>
+                            {% else %}
+                            <button class="btn"><a class="nav-link-right" href="{{url_for('register')}}" style="text-decoration: none;color: #fff;">Sign Up Now!</a></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                  
+                <!-- <h1>Top Ten Things!</h1>
                 <div class="col-6 offset-3">
                     <ol>
                         <li>
@@ -21,6 +40,6 @@
 
                         </li>
                     </ol>
-                </div>
+                </div>-->
             </div>
 {% endblock %}

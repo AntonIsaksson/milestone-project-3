@@ -25,7 +25,7 @@ mongo = PyMongo(app)
 @app.route('/home')
 def home_page():
     if 'username' in session:
-        return render_template("logged-in-home.html", users = mongo.db.users.find_one({'name': session['username']}))
+        return render_template("home.html", users = mongo.db.users.find_one({'name': session['username']}))
     return render_template ("home.html")
 
 
@@ -62,6 +62,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'name' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
+            session.clear()
             return redirect(url_for('to_login'))
         
         return 'That username already exists!'
@@ -75,22 +76,36 @@ def account():
 
 
 
-@app.route('/show_list')#=get_recipes
+@app.route('/show_list')
 def show_list():
-    return render_template("lists.html", lists = mongo.db.lists.find())
+    if 'username' in session:
+        return render_template("lists.html", 
+                                lists = mongo.db.lists.find(),
+                                users = mongo.db.users.find_one({'name': session['username']}))
+    return render_template("lists.html", 
+                            lists = mongo.db.lists.find())
 
 
-@app.route('/view_lists/<list_id>')#=view_recipe
+@app.route('/view_lists/<list_id>')
 def view_lists(list_id):
     lists = mongo.db.lists
     list_db=lists.find_one({'_id': ObjectId(list_id)})
-    return render_template("show_list.html", lists=list_db, listName = mongo.db.lists.find())
+    if 'username' in session:
+        return render_template("show_list.html", 
+                                lists=list_db, 
+                                listName = mongo.db.lists.find(),
+                                users = mongo.db.users.find_one({'name': session['username']}))
+    return render_template("show_list.html", 
+                            lists=list_db, 
+                            listName = mongo.db.lists.find())
 
 
 
 @app.route('/create_list')
 def create_list():
-    return render_template("create_list.html")
+    return render_template("create_list.html", 
+                            lists=mongo.db.lists.find(),
+                            users = mongo.db.users.find_one({'name': session['username']}))
 
 
 
@@ -110,50 +125,140 @@ def insert_list():
             "list_object_name": form['list_object_name_1'],
             "list_object_description": form['list_object_description_1']         
             },
-            {
+             {
             "list_object_number": form['list_object_number_2'],
             "list_object_name": form['list_object_name_2'],
             "list_object_description": form['list_object_description_2']         
+            },
+            {
+            "list_object_number": form['list_object_number_3'],
+            "list_object_name": form['list_object_name_3'],
+            "list_object_description": form['list_object_description_3']         
+            },
+             {
+            "list_object_number": form['list_object_number_4'],
+            "list_object_name": form['list_object_name_4'],
+            "list_object_description": form['list_object_description_4']         
+            },
+            {
+            "list_object_number": form['list_object_number_5'],
+            "list_object_name": form['list_object_name_5'],
+            "list_object_description": form['list_object_description_5']         
+            },
+             {
+            "list_object_number": form['list_object_number_6'],
+            "list_object_name": form['list_object_name_6'],
+            "list_object_description": form['list_object_description_6']         
+            },
+            {
+            "list_object_number": form['list_object_number_7'],
+            "list_object_name": form['list_object_name_7'],
+            "list_object_description": form['list_object_description_7']         
+            },
+             {
+            "list_object_number": form['list_object_number_8'],
+            "list_object_name": form['list_object_name_8'],
+            "list_object_description": form['list_object_description_8']         
+            },
+            {
+            "list_object_number": form['list_object_number_9'],
+            "list_object_name": form['list_object_name_9'],
+            "list_object_description": form['list_object_description_9']         
+            },
+             {
+            "list_object_number": form['list_object_number_10'],
+            "list_object_name": form['list_object_name_10'],
+            "list_object_description": form['list_object_description_10']         
             }
         ]
         
         obj = {
             "list_name": form['list_name'],
+            'image_file': form['image_file'],
             "list_objects": myListObject,
             "user": session['username']
-
         }
         lists.insert_one(obj)
     
-    return redirect(url_for('home_page'))                     
+    return redirect(url_for('show_list'))                     
 
 
 @app.route('/edit_list/<list_id>')
 def edit_list(list_id):
     the_list=mongo.db.lists.find_one({"_id":ObjectId(list_id)})
     return render_template('edit_list.html',
-                            lists=the_list)
+                            lists=the_list,
+                            users = mongo.db.users.find_one({'name': session['username']}))
 
 
 @app.route('/update_list/<list_id>', methods=["POST"])
-def update_list(list_id):    
+def update_list(list_id):      
+    myListObject = [
+                {
+                "list_object_number": request.form.get('list_object_number_1'),
+                "list_object_name": request.form.get('list_object_name_1'),
+                "list_object_description": request.form.get('list_object_description_1')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_2'),
+                "list_object_name": request.form.get('list_object_name_2'),
+                "list_object_description": request.form.get('list_object_description_2')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_3'),
+                "list_object_name": request.form.get('list_object_name_3'),
+                "list_object_description": request.form.get('list_object_description_3')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_4'),
+                "list_object_name": request.form.get('list_object_name_4'),
+                "list_object_description": request.form.get('list_object_description_4')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_5'),
+                "list_object_name": request.form.get('list_object_name_5'),
+                "list_object_description": request.form.get('list_object_description_5')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_6'),
+                "list_object_name": request.form.get('list_object_name_6'),
+                "list_object_description": request.form.get('list_object_description_6')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_7'),
+                "list_object_name": request.form.get('list_object_name_7'),
+                "list_object_description": request.form.get('list_object_description_7')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_8'),
+                "list_object_name": request.form.get('list_object_name_8'),
+                "list_object_description": request.form.get('list_object_description_8')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_9'),
+                "list_object_name": request.form.get('list_object_name_9'),
+                "list_object_description": request.form.get('list_object_description_9')         
+                },
+                {
+                "list_object_number": request.form.get('list_object_number_10'),
+                "list_object_name": request.form.get('list_object_name_10'),
+                "list_object_description": request.form.get('list_object_description_10')         
+                }
+            ]  
     lists = mongo.db.lists.update( {'_id': ObjectId(list_id)},
         {
             'list_name':request.form.get('list_name'),
-            "list_objects":[
-                {
-                "list_object_number": request.form.get('list_object_number'),
-                "list_object_name": request.form.get('list_object_name'),
-                "list_object_description": request.form.get('list_object_description')         
-                }
-            ]   
+            'image_file': request.form.get('image_file'),
+            "user": session['username'],
+            "list_objects": myListObject
         })
     return redirect(url_for('show_list'))
 
 
-@app.route('/delete_list')
-def delete_list():
-    return ''
+@app.route('/delete_list/<list_id>')
+def delete_list(list_id):
+    mongo.db.lists.remove({'_id': ObjectId(list_id)})
+    return redirect(url_for('show_list'))
 
 
 if __name__ == "__main__":
