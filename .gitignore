@@ -1,4 +1,4 @@
-#env.py -- when added, can't deploy to heroku
+env.py
 venv
 __pycache__
 .vscode
