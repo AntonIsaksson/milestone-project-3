@@ -70,11 +70,6 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/account')
-def account():
-    return render_template('account.html', users = mongo.db.users.find_one({'name': session['username']})) 
-
-
 
 @app.route('/show_list')
 def show_list():
@@ -113,7 +108,7 @@ def create_list():
 
 
 
-#lists.insert_one(request.form.to_dict())
+
 @app.route('/insert_list', methods=['POST'])
 def insert_list():
     lists = mongo.db.lists
@@ -262,7 +257,6 @@ def delete_list(list_id):
 
 
 if __name__ == "__main__":
-    #app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'),
         port=os.environ.get('PORT'),
-        debug=False)
+        debug=True)

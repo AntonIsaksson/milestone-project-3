@@ -1,25 +1,99 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
+
+/*----------------------------------- General Styling*/
+
 body {
     text-align: center;
     color: #fefefe;
     background-color: rgb(64, 177, 158);
-    /*background: url(/static/img/blue-curtains.jpg) no-repeat center fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;*/
     font-family: "Quicksand", sans-serif;
 }
 
+.content-container {
+    margin-top: 76px;
+}
+
+/*--------- Headers*/
+h1 {
+    margin-top: 30px;
+    color: #fff;
+    text-shadow: 0 2px rgb(64, 177, 158), 0 3px rgb(19, 100, 120);
+    font-size: 50px;
+}
+
+h2 {
+    color: rgb(32, 118, 158);
+}
+
+h3{
+    font-size: 1.2rem;
+}
+h4 {
+    letter-spacing: .6px;
+    margin-top: 30px;
+    color: #fff;
+    margin: 1em 0 0.5em 0;
+    /* color: #fbec5d; */
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+    text-shadow: 0 2px rgb(64, 177, 158), 0 4px rgb(19, 100, 120);
+    font-size: 1rem;
+    
+}
+
+h5 {
+    margin: 30px 30px 30px 0px;
+}
+
+/*--------- Buttons*/
+
+.btn-primary {
+    margin-top: 30px;
+}
+
+.btn-info, .btn-danger {
+    margin-top: 30px;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #ccbf4b;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #378ea8;
+    color: #fff;
+    border: none;
+}
+
+/*--------- Buttons*/
+.my-4 {
+    width: 30%;
+}
+
+.my-5 {
+    width: 70%;
+}
+
+/*------------------------------------------------- Navbar*/
 .navbar {
     background-color: rgb(19, 100, 120);
     /*border-bottom: 1px solid aquamarine;*/
     border-bottom: 1px solid #09bbf5;
 }
 
+.logo {
+    height: 50px;
+    margin-right: 0 10px;
+    border-radius: 10%;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.5);
 
+}
 
 .navbar-nav li a {
     margin-left: 30px;
@@ -50,51 +124,9 @@ body {
 .nav-link-right:hover {
     color: rgba(255,255,255,.75);
 }
-h1 {
-    margin-top: 30px;
-    color: #fff;
-    text-shadow: 0 2px rgb(64, 177, 158), 0 3px rgb(19, 100, 120);
-    font-size: 50px;
-}
 
-h2 {
-    color: rgb(32, 118, 158);
-}
 
-h4 {
-    letter-spacing: .6px;
-    margin-top: 30px;
-    color: #fff;
-    margin: 1em 0 0.5em 0;
-    /* color: #fbec5d; */
-    font-weight: normal;
-    font-family: 'Ultra', sans-serif;
-    font-size: 60px;
-    line-height: 42px;
-    text-transform: uppercase;
-    text-shadow: 0 2px rgb(64, 177, 158), 0 4px rgb(19, 100, 120);
-    font-size: 1.5rem;
-}
-
-h5 {
-    margin: 30px;
-}
-
-.btn-info, .btn-danger {
-    margin-top: 30px;
-}
-
-.btn-warning {
-    color: #fff;
-    background-color: #ccbf4b;
-    border: none;
-}
-
-.btn-warning:hover {
-    background-color: #378ea8;
-    color: #fff;
-    border: none;
-}
+/*-------------------------------------------------Home Page*/
 
 #main-header {
     letter-spacing: .6px;
@@ -105,7 +137,7 @@ h5 {
     font-weight: normal;
     font-family: 'Ultra', sans-serif;
     font-size: 60px;
-    line-height: 42px;
+    line-height: 50px;
     text-transform: uppercase;
     text-shadow: 0 2px rgb(64, 177, 158), 0 4px rgb(19, 100, 120);
 }
@@ -115,48 +147,14 @@ h5 {
     font-size: 80px;
     text-shadow: 0 3px rgb(64, 200, 158), 0 5px rgb(19, 100, 120);
 }
-.logo {
-    height: 50px;
-    margin-right: 0 10px;
-    border-radius: 10%;
-    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.5);
 
-}
-
-.list_heading {
-    padding: 0;
-    letter-spacing: .6px;
-    margin-top: 30px;
-    color: #fff;
-    margin: 1em 0 0.5em 0;
-    color: #fbec5d;
-    font-weight: normal;
-    font-family: 'Ultra', sans-serif;
-    font-size: 55px;
-    text-transform: uppercase;
-    text-shadow: 0 2px rgb(64, 177, 158), 0 4px rgb(124, 206, 226);
-}
-
-.list_image {
-    padding: 0;
-    max-height: 50vh;
-    border-radius: 1%;
-    box-shadow: 0px 0px 50px rgb(19, 100, 120);
-}
-
-.content-container {
-    margin-top: 76px;
-}
 
 #home-page-content-wrapper {
     padding: 15px;
-    
-    /*background-image: url(/static/img/collage.1.png);
-    background-size: cover;
-    background-position: center;*/
 }
+
 .title{
-    padding: 30px 40px 30px 40px;
+    padding: 5px 0px 5px 0px;
     background: rgb(51, 156, 139);
     box-shadow: 0px 0px 5px rgba(200, 200, 200);
     margin-top: 40px;
@@ -165,52 +163,10 @@ h5 {
 .home-page-list {
     text-align: center;
 }
-#create-list-content-wrapper {
-    padding: 15px;
-}
 
-#add-category-content-wrapper {
-    padding: 15px;
-}
+/*-------------------------------------------------Show Lists Page*/
 
-.create-list-card {
-    color: rgb(32, 118, 158);
-    padding: 15px;
-}
-
-.btn-primary {
-    margin-top: 30px;
-}
-
-.add-list-name-row {
-    padding-top: 30px;
-}
-
-.my-4 {
-    width: 30%;
-}
-
-.my-5 {
-    width: 70%;
-}
-
-.add-list-object-row {
-    padding-top: 30px;
-}
-
-i {
-    width: 40px;
-    color: rgb(32, 118, 158);
-}
-
-#list-item-modal {
-    color: rgb(32, 118, 158);
-}
-
-.modal-padding {
-    padding: 15px 10px;
-}
-/* Lists page - Sidebar */
+/* ---------------Lists page - Sidebar */
 
 #sidebar-wrapper {
     z-index: 1;
@@ -220,9 +176,6 @@ i {
     background-color: rgb(19, 100, 120);
 }
 
-#navbarDropdown {
-    position: relative;
-}
 /* Main Content */
 #lists-page-content-wrapper {
     width: 100%;
@@ -232,11 +185,11 @@ i {
 
 /* Change the width of the sidebar to display it*/
 #wrapper.menuDisplayed #sidebar-wrapper {
-    width: 250px;
+    width: 100px;
 }
 
 #wrapper.menuDisplayed #lists-page-content-wrapper {
-    padding-left: 250px;
+    padding-left: 100px;
 }
 
 .sidebar-nav {
@@ -249,10 +202,10 @@ i {
 }
 
 .sidebar-nav li a {
-    /*display: block;*/
     text-decoration: none;
     color: #ddd;
-    line-height: 25px;
+    line-height: 15px;
+    font-size: 10px;
 }
 
 .sidebar-nav li a:hover {
@@ -262,8 +215,31 @@ i {
     
 }
 
+/*-------------------------------------------------View List Page*/
+
+.list_heading {
+    padding: 0;
+    letter-spacing: .6px;
+    margin-top: 30px;
+    color: #fff;
+    margin: 1em 0 0.5em 0;
+    color: #fbec5d;
+    font-weight: normal;
+    font-family: 'Ultra', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-shadow: 0 2px rgb(64, 177, 158), 0 4px rgb(124, 206, 226);
+}
+
+.list_image {
+    padding: 0;
+    max-height: 50vh;
+    border-radius: 1%;
+    box-shadow: 0px 0px 50px rgb(19, 100, 120);
+}
+
 .list-content-wrapper {
-    padding: 45px;
+    padding: 15px;
 }
 
 .list-item-heading {
@@ -272,9 +248,112 @@ i {
 
 .list-item-paragraf {
     text-align: left;
-    padding-left: 27px;
+    font-size: 14px;
 }
+
+/*-------------------------------------------------Create List Page*/
+
+
+#create-list-content-wrapper {
+    padding: 15px;
+}
+
+.create-list-card {
+    color: rgb(32, 118, 158);
+}
+
+.add-list-name-row {
+    padding-top: 30px;
+}
+
+.add-list-object-row {
+    padding-top: 30px;
+}
+
+i {
+    width: 40px;
+    color: rgb(32, 118, 158);
+}
+
+/*-------------------------------------------------LogIn / Register Page*/
+
+#login-register-content-wrapper {
+    padding: 15px;
+}
+
+.login-register-card{
+    color: rgb(32, 118, 158);
+    padding: 15px;
+}
+
 
 .form-signin {
     padding: 10px;
+}
+
+
+
+/*---Medium Screen (ipad)---*/
+@media (min-width: 481px){
+
+    h3{
+        font-size: 1.75rem;
+    }
+    #main-header {
+        line-height: 42px;
+    }
+
+    #wrapper.menuDisplayed #sidebar-wrapper {
+        width: 150px;
+    }
+    
+    #wrapper.menuDisplayed #lists-page-content-wrapper {
+        padding-left: 150px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 12px;
+    }
+
+    .list_heading{
+        font-size: 55px;
+    }
+
+    .list-item-paragraf {
+        text-align: left;
+        padding-left: 27px;
+        font-size: 16px;
+    }
+}
+
+/*---Large Screen---*/
+@media (min-width: 769px) {
+
+    .title{
+        padding: 30px 40px 30px 40px;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        line-height: 42px;
+    }
+    h5 {
+        margin: 30px 30px 30px 30px;
+    }
+
+    #wrapper.menuDisplayed #sidebar-wrapper {
+        width: 250px;
+    }
+    
+    #wrapper.menuDisplayed #lists-page-content-wrapper {
+        padding-left: 250px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .list-content-wrapper {
+        padding: 45px;
+    }
 }
